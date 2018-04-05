@@ -7,13 +7,13 @@
 
     <groupId>eu.tib.osl</groupId>
     <artifactId>vivo</artifactId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <parent>
         <groupId>eu.tib.osl</groupId>
         <artifactId>vivo-installer</artifactId>
-        <version>1.9.0-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -129,12 +129,12 @@
         <dependency>
             <groupId>eu.tib.osl</groupId>
             <artifactId>vivo-api</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
+            <version>2.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>eu.tib.osl</groupId>
             <artifactId>vivo-webapp</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
+            <version>2.0.0-SNAPSHOT</version>
             <type>war</type>
         </dependency>
     </dependencies>

@@ -7,13 +7,13 @@
 
     <groupId>eu.tib.osl</groupId>
     <artifactId>home</artifactId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>eu.tib.osl</groupId>
         <artifactId>vivo-installer</artifactId>
-        <version>1.9.0-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>eu.tib.osl</groupId>
             <artifactId>vivo-home</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
+            <version>2.0.0-SNAPSHOT</version>
             <type>tar.gz</type>
         </dependency>
     </dependencies>
