@@ -3,3 +3,11 @@
 
     Note - all themes must include <../../..>/local/css/local.css as the last import.
 */
+
+#individual-ex-tib .row {
+    background-color: #AF1414;
+}
+
+#individual-ex-tib h2 {
+    color: #ffffff;
+}
