@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
 
     <name>VIVO_FIS</name>
-A
+
     <modules>
         <module>project-installer</module>
         <module>vivo</module>
