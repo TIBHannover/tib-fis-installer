@@ -6,14 +6,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eu.tib.osl</groupId>
-    <artifactId>vivo-installer-vivo</artifactId>
-    <version>1.11.0-SNAPSHOT</version>
+    <artifactId>vivo-installer-webapp</artifactId>
+    <version>1.13.0</version>
     <packaging>war</packaging>
 
     <parent>
         <groupId>eu.tib.osl</groupId>
         <artifactId>vivo-installer</artifactId>
-        <version>1.11.0-SNAPSHOT</version>
+        <version>1.13.0</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -40,21 +40,22 @@
                             <archiveClasses>false</archiveClasses>
                             <overlays>
                                 <overlay>
-                                    <groupId>eu.tib.osl</groupId>
+                                    <groupId>org.vivoweb</groupId>
                                     <artifactId>vivo-webapp</artifactId>
                                     <type>war</type>
                                 </overlay>
                                 <!-- Overlays for multilingual support -->
-                                <overlay>
+				<!--<overlay>
                                     <groupId>org.vivoweb</groupId>
-                                    <artifactId>vitro-languages-webapp</artifactId>
+                                    <artifactId>vitro-languages-webapp-core</artifactId>
                                     <type>war</type>
                                 </overlay>
                                 <overlay>
                                     <groupId>org.vivoweb</groupId>
-                                    <artifactId>vivo-languages-webapp</artifactId>
+                                    <artifactId>vivo-languages-webapp-core</artifactId>
                                     <type>war</type>
-                                </overlay>
+					</overlay>
+				-->
                             </overlays>
                             <webResources>
                                 <resource>
@@ -145,25 +146,25 @@
 
     <dependencies>
         <dependency>
-            <groupId>eu.tib.osl</groupId>
+            <groupId>org.vivoweb</groupId>
             <artifactId>vivo-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>eu.tib.osl</groupId>
+            <groupId>org.vivoweb</groupId>
             <artifactId>vivo-webapp</artifactId>
             <type>war</type>
         </dependency>
         <!-- Dependencies for multilingual support -->
         <dependency>
             <groupId>org.vivoweb</groupId>
-            <artifactId>vitro-languages-webapp</artifactId>
-            <version>1.11.0-SNAPSHOT</version>
+            <artifactId>vitro-languages-webapp-core</artifactId>
+            <version>1.13.0</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>org.vivoweb</groupId>
-            <artifactId>vivo-languages-webapp</artifactId>
-            <version>1.11.0-SNAPSHOT</version>
+            <artifactId>vivo-languages-webapp-core</artifactId>
+            <version>1.13.0</version>
             <type>war</type>
         </dependency>
 

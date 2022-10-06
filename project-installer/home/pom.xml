@@ -7,13 +7,13 @@
 
     <groupId>eu.tib.osl</groupId>
     <artifactId>vivo-installer-home</artifactId>
-    <version>1.11.0-SNAPSHOT</version>
+    <version>1.13.0</version>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>eu.tib.osl</groupId>
         <artifactId>vivo-installer</artifactId>
-        <version>1.11.0-SNAPSHOT</version>
+        <version>1.13.0</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -103,15 +103,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>eu.tib.osl</groupId>
+            <groupId>org.vivoweb</groupId>
             <artifactId>vivo-home</artifactId>
+            <version>1.13.0</version>
             <type>tar.gz</type>
         </dependency>
         <!-- Dependency for multilingual support -->
         <dependency>
             <groupId>org.vivoweb</groupId>
-            <artifactId>vivo-languages-home</artifactId>
-            <version>1.11.0-SNAPSHOT</version>
+            <artifactId>vivo-languages-home-core</artifactId>
+            <version>1.13.0</version>
             <type>tar.gz</type>
         </dependency>
     </dependencies>
