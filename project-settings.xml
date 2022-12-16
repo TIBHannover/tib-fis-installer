@@ -8,7 +8,7 @@
                 <app-name>fis</app-name>
 
                 <vivo-dir>/tib/app/vivo/data/fis</vivo-dir>
-                <tomcat-dir>/tib/app/vivo/tomcat</tomcat-dir>
+		<tomcat-dir>/var/lib/tomcat9</tomcat-dir>
                 <vivo-installer-dir>../project-installer</vivo-installer-dir>
 
                 <default-theme>tib</default-theme>
