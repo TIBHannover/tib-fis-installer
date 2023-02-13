@@ -42,6 +42,7 @@ h3 {
 .icons-home {
     background-image: url('../images/bg4.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .icons-home .col-md-4 {
