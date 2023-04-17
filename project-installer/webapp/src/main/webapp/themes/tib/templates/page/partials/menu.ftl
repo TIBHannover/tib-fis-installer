@@ -9,7 +9,11 @@
                     <div class="navbar-header pull-right">
                     <ul class="nav pull-left">
                     <li>
-                    <#include "search.ftl">
+                        <#if currentServlet != "extendedsearch">
+                          <#include "search.ftl">
+                        <#else>
+                          <#include "remote-search.ftl">
+                        </#if>
                     </li>
                     </ul>
                     </div>
@@ -17,7 +21,11 @@
                     <div class="navbar-header pull-right">
                         <ul class="nav pull-left">
                             <li>
-                            <#include "search.ftl">
+	                        <#if currentServlet != "extendedsearch">
+        	                  <#include "search.ftl">
+                	        <#else>
+                        	  <#include "remote-search.ftl">
+	                        </#if>
                             </li>
                         </ul>
                     </div>

@@ -1,0 +1,347 @@
+@prefix ocrer: <http://purl.org/net/OCRe/research.owl#> .
+@prefix pr:    <https://iph.ras.ru/relationships#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix ns:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix scires: <http://vivoweb.org/ontology/scientific-research#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swo:   <http://www.ebi.ac.uk/efo/swo/> .
+@prefix ocresd: <http://purl.org/net/OCRe/study_design.owl#> .
+@prefix cito:  <http://purl.org/spar/cito/> .
+@prefix geo:   <http://aims.fao.org/aos/geopolitical.owl#> .
+@prefix search: <https://osl.tib.eu/vitro-searchOntology#> .
+@prefix ocresst: <http://purl.org/net/OCRe/statistics.owl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vivo:  <http://vivoweb.org/ontology/core#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix c4o:   <http://purl.org/spar/c4o/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix gesah: <http://ontology.tib.eu/gesah/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> .
+@prefix skos2: <http://www.w3.org/2008/05/skos#> .
+@prefix vitro-public: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ocresp: <http://purl.org/net/OCRe/study_protocol.owl#> .
+@prefix ecrm:  <http://erlangen-crm.org/170309/> .
+@prefix bibo:  <http://purl.org/ontology/bibo/> .
+@prefix ro:    <http://purl.obolibrary.org/obo/ro.owl#> .
+@prefix obo:   <http://purl.obolibrary.org/obo/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+search:multivalued  a                 owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:SearchField ;
+        rdfs:label                    "is multivalued"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:cropLeft  a                    owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:FilterValue ;
+        rdfs:label                    "Crop left"@en-US ;
+        rdfs:range                    xsd:float ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:isAscending  a                 owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:Sort ;
+        rdfs:label                    "is ascending order"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:RangeFilter  a           owl:Class ;
+        rdfs:label              "range filter"^^rdf:langString , "Range filter"^^rdf:langString , "Range filter"@en-US ;
+        rdfs:subClassOf         search:Filter , search:Statement ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:displayRankAnnot  3 ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> .
+
+search:indexField  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  search:SearchField ;
+        rdfs:label   "Index field"^^rdf:langString ;
+        rdfs:range   xsd:string .
+
+search:contains  a                     owl:ObjectProperty ;
+        rdfs:domain                    search:FilterGroup ;
+        rdfs:label                     "contains"@en-US ;
+        rdfs:range                     search:Filter ;
+        obo:IAO_0000112                ""@en-US ;
+        vitro:descriptionAnnot         ""@en-US ;
+        vitro:publicDescriptionAnnot   ""@en-US ;
+        vitro:selectFromExistingAnnot  true .
+
+search:step  a                        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:RangeFilter ;
+        rdfs:label                    "step"@en-US ;
+        rdfs:range                    xsd:int ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:isLanguageSpecific
+        a                             owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:SearchField ;
+        rdfs:label                    "is language specific"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:filterField  a                  owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain                    search:Filter ;
+        rdfs:label                     "Filter field"^^rdf:langString , "Filter field"@en-US , "Filter field"@de-DE ;
+        rdfs:range                     search:SearchField ;
+        obo:IAO_0000112                ""@en-US , ""@de-DE ;
+        vitro:descriptionAnnot         ""@de-DE , ""@en-US ;
+        vitro:offerCreateNewOptionAnnot
+                true ;
+        vitro:publicDescriptionAnnot   ""@en-US , ""@de-DE ;
+        vitro:selectFromExistingAnnot  true .
+
+<https://osl.tib.eu/vitro-searchOntology>
+        a                          owl:Ontology ;
+        rdfs:label                 "Semantic search"^^rdf:langString ;
+        vitro:ontologyPrefixAnnot  "search" .
+
+search:isUriValues  a                 owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:Filter ;
+        rdfs:label                    "Contains URIs"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:SearchField  a           owl:Class ;
+        rdfs:label              "Field"^^rdf:langString , "Field"@en-US ;
+        rdfs:subClassOf         search:Statement ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:displayRankAnnot  10 ;
+        vitro:hiddenFromDisplayBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:hiddenFromPublishBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupsearchsettings> , <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> ;
+        vitro:prohibitedFromUpdateBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+
+search:order  a                       owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain                   [ a            owl:Class ;
+                                        owl:unionOf  ( search:FilterValue search:Filter search:FilterGroup )
+                                      ] ;
+        rdfs:label                    "order"@en-US ;
+        rdfs:range                    xsd:integer ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:hasImage  a                     owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain                    search:FilterValue ;
+        rdfs:label                     "hasImage"@en-US ;
+        rdfs:range                     gesah:Digital_Image ;
+        obo:IAO_0000112                ""@en-US ;
+        vitro:descriptionAnnot         ""@en-US ;
+        vitro:publicDescriptionAnnot   ""@en-US ;
+        vitro:selectFromExistingAnnot  true .
+
+search:userInput  a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:Filter ;
+        rdfs:label                    "user input"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:FilterValue  a           owl:Class ;
+        rdfs:label              "FilterValue"@en-US ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:displayRankAnnot  9 ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupsearchsettings> , <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> .
+
+search:Statement  a          owl:Class ;
+        rdfs:label           "Search Statement"^^rdf:langString , "Search statement"^^rdf:langString ;
+        rdfs:subClassOf      owl:Thing ;
+        vitro:hiddenFromDisplayBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:hiddenFromPublishBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:inClassGroup   <http://vivo.mydomain.edu/individual/vitroClassGroupsearchstatements> ;
+        vitro:prohibitedFromUpdateBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        owl:equivalentClass  search:Statement .
+
+search:from  a                        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:RangeFilter ;
+        rdfs:label                    "Minimum range value"^^rdf:langString , "Minimum range value"@en-US ;
+        rdfs:range                    xsd:string ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:description  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  search:Statement ;
+        rdfs:label   "description"^^rdf:langString ;
+        rdfs:range   xsd:string .
+
+search:FilterGroup  a           owl:Class ;
+        rdfs:label              "FilterGroup"@en-US ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:displayRankAnnot  2 ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> .
+
+search:userInputRegex
+        a                             owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:Filter ;
+        rdfs:label                    "userInputRegex"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:Filter  a                owl:Class ;
+        rdfs:label              "Filter"^^rdf:langString , "Filter"@en-US ;
+        rdfs:subClassOf         owl:Thing , search:Statement ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:displayRankAnnot  0 ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> ;
+        owl:equivalentClass     search:Filter .
+
+search:sortField  a                    owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain                    search:Sort ;
+        rdfs:label                     "Sort field"^^rdf:langString , "Sort field"@en-US ;
+        rdfs:range                     search:SearchField ;
+        obo:IAO_0000112                ""@en-US ;
+        vitro:descriptionAnnot         ""@en-US ;
+        vitro:offerCreateNewOptionAnnot
+                true ;
+        vitro:publicDescriptionAnnot   ""@en-US ;
+        vitro:selectFromExistingAnnot  true .
+
+search:cropRight  a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:FilterValue ;
+        rdfs:label                    "Crop right"@en-US ;
+        rdfs:range                    xsd:float ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:cropBottom  a                  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:FilterValue ;
+        rdfs:label                    "Crop bottom"@en-US ;
+        rdfs:range                    xsd:float ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:id  a                          owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   [ a            owl:Class ;
+                                        owl:unionOf  ( search:Sort search:FilterValue search:Filter search:FilterGroup )
+                                      ] ;
+        rdfs:label                    "Identifier"@en-US , "Identifier"^^rdf:langString , "Identifier"@de-DE ;
+        rdfs:range                    xsd:string ;
+        obo:IAO_0000112               ""@de-DE ;
+        vitro:descriptionAnnot        ""@de-DE ;
+        vitro:publicDescriptionAnnot  ""@de-DE .
+
+search:facetResults  a                owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:Filter ;
+        rdfs:label                    "Show facet results"@en-US ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:cropTop  a                     owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:FilterValue ;
+        rdfs:label                    "Crop top"@en-US ;
+        rdfs:range                    xsd:float ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:Sort  a                  owl:Class ;
+        rdfs:label              "Sort"^^rdf:langString , "Sort"@en-US ;
+        rdfs:subClassOf         search:Statement ;
+        obo:IAO_0000112         ""@en-US ;
+        obo:IAO_0000115         ""@en-US ;
+        vitro:descriptionAnnot  ""@en-US ;
+        vitro:hiddenFromDisplayBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:hiddenFromPublishBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> ;
+        vitro:inClassGroup      <https://vivo.tib.eu/gesah/individual/vitroClassGroupn4850> ;
+        vitro:prohibitedFromUpdateBelowRoleLevelAnnot
+                <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+
+search:to  a                          owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   search:RangeFilter ;
+        rdfs:label                    "Maximum range value"^^rdf:langString , "Maximum range value"@en-US ;
+        rdfs:range                    xsd:string ;
+        obo:IAO_0000112               ""@en-US ;
+        vitro:descriptionAnnot        ""@en-US ;
+        vitro:publicDescriptionAnnot  ""@en-US .
+
+search:hasKnownValue  a                owl:ObjectProperty ;
+        rdfs:domain                    search:Filter ;
+        rdfs:label                     "hasKnownValue"@en-US ;
+        rdfs:range                     search:FilterValue ;
+        obo:IAO_0000112                ""@en-US ;
+        vitro:descriptionAnnot         ""@en-US ;
+        vitro:offerCreateNewOptionAnnot
+                true ;
+        vitro:publicDescriptionAnnot   ""@en-US ;
+        vitro:selectFromExistingAnnot  true .
+
+search:public  a                      owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain                   [ a            owl:Class ;
+                                        owl:unionOf  ( search:Filter search:FilterGroup )
+                                      ] ;
+        rdfs:label                    "public"@en-US , "public"@de-DE ;
+        rdfs:range                    xsd:boolean ;
+        obo:IAO_0000112               ""@en-US , ""@de-DE ;
+        vitro:descriptionAnnot        ""@en-US , ""@de-DE ;
+        vitro:publicDescriptionAnnot  ""@de-DE , ""@en-US .
+
+
+<https://osl.tib.eu/vitro-searchOntology#defaultPublic>
+        a                   <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        rdfs:domain         <https://osl.tib.eu/vitro-searchOntology#FilterValue> ;
+        rdfs:label          "Is default public value"@en-US ;
+        rdfs:range          <http://www.w3.org/2001/XMLSchema#boolean> ;
+        rdfs:subPropertyOf  <http://www.w3.org/2002/07/owl#topDataProperty> , <https://osl.tib.eu/vitro-searchOntology#defaultPublic> ;
+        <http://purl.obolibrary.org/obo/IAO_0000112>
+                ""@en-US ;
+        <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#descriptionAnnot>
+                ""@en-US ;
+        <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#publicDescriptionAnnot>
+                ""@en-US .
+
+<https://osl.tib.eu/vitro-searchOntology#moreLimit>
+        a                   <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        rdfs:domain         <https://osl.tib.eu/vitro-searchOntology#Filter> ;
+        rdfs:label          "initial facet limit"@en-US ;
+        rdfs:range          <http://www.w3.org/2001/XMLSchema#int> ;
+        rdfs:subPropertyOf  <http://www.w3.org/2002/07/owl#topDataProperty> , <https://osl.tib.eu/vitro-searchOntology#moreLimit> ;
+        <http://purl.obolibrary.org/obo/IAO_0000112>
+                ""@en-US ;
+        <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#descriptionAnnot>
+                ""@en-US ;
+        <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#publicDescriptionAnnot>
+                ""@en-US .
