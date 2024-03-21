@@ -51,7 +51,7 @@
               ?uri vivo:relatedBy ?personRelation .
               ?personRelation vivo:relates ?person .
               ?person rdf:type foaf:Person .
-              ?peson vivo:relatedBy ?position .
+              ?person vivo:relatedBy ?position .
               ?position vivo:relates ?org .
               {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> . }
                UNION
