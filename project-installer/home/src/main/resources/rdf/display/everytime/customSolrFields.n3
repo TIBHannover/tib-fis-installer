@@ -137,13 +137,15 @@
     :hasSelectQuery """
         PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT ?result
+        SELECT ?year
         WHERE
         {
           ?uri rdf:type <http://purl.obolibrary.org/obo/IAO_0000030> .
-          ?uri <http://vivoweb.org/ontology/core#dateTimeValue> ?dateValue .
-          ?dateValue <http://vivoweb.org/ontology/core#dateTime> ?dateTime .
-          BIND( SUBSTR(STR(?dateTime),0,5) as ?result )
+          OPTIONAL {
+            ?uri <http://vivoweb.org/ontology/core#dateTimeValue> ?dateValue .
+            ?dateValue <http://vivoweb.org/ontology/core#dateTime> ?dateTime .
+          }
+          BIND ( COALESCE( SUBSTR(STR(?dateTime),0,5), "Not assigned" ) AS ?year )
         }
 """ .
 
