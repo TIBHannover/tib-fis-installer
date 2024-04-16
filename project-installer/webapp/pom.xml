@@ -7,13 +7,13 @@
 
     <groupId>eu.tib.osl</groupId>
     <artifactId>vivo-installer-webapp</artifactId>
-    <version>1.13.0</version>
+    <version>1.14.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <parent>
         <groupId>eu.tib.osl</groupId>
         <artifactId>vivo-installer</artifactId>
-        <version>1.13.0</version>
+        <version>1.14.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -154,20 +154,6 @@
             <artifactId>vivo-webapp</artifactId>
             <type>war</type>
         </dependency>
-        <!-- Dependencies for multilingual support -->
-        <dependency>
-            <groupId>org.vivoweb</groupId>
-            <artifactId>vitro-languages-webapp-core</artifactId>
-            <version>1.13.0</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.vivoweb</groupId>
-            <artifactId>vivo-languages-webapp-core</artifactId>
-            <version>1.13.0</version>
-            <type>war</type>
-        </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
