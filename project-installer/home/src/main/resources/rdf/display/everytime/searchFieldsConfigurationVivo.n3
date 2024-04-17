@@ -14,7 +14,7 @@
         WHERE {
             ?uri vivo:relatedBy ?position .
             ?position vivo:relates ?person .
-            ?person rdf:type foaf:Person .
+            ?person rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBMitarbeiter> .
         }
 """ .
 
@@ -263,6 +263,6 @@
                   )
                   BIND( CONCAT("[", STR(?cleanDateValue)," TO ", STR(?cleanDateValue),"]") as ?result )
 		}
-	}
+	} LIMIT 1
 """ .
 
