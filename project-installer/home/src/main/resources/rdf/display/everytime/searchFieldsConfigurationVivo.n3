@@ -53,43 +53,21 @@
               ?person rdf:type foaf:Person .
               ?person vivo:relatedBy ?position .
               ?position vivo:relates ?org .
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> . }
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Bereich> . }
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Programmbereich> . }
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#JuniorResearchGroup> . }
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Lab> . }
+              ?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+              ?org rdf:type foaf:Organization .
             }
              UNION
             {
               ?uri rdf:type foaf:Person .
               ?uri vivo:relatedBy ?position .
               ?position vivo:relates ?org .
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> . } 
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Bereich> . } 
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Programmbereich> . } 
-               UNION 
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#JuniorResearchGroup> . }
-               UNION
-              {?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Lab> . }
+              ?org rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+              ?org rdf:type foaf:Organization .
             } 
              UNION 
             {
+              ?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
               ?uri rdf:type foaf:Organization .
-              {?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> . }
-               UNION
-              {?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Bereich> . }
-               UNION
-              {?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Programmbereich> . }
-               UNION
-              {?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#JuniorResearchGroup> . }
-               UNION
-              {?uri rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#Lab> . }
             }
         }
 """ .
