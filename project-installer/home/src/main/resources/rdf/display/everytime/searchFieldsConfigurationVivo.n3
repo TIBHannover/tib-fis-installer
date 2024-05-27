@@ -247,3 +247,22 @@
 	} LIMIT 1
 """ .
 
+:vitrodocumentModifier_journal_peer_review
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "concepts filter" ;
+    :hasTargetField "journal_peer_review_value_ss" ;
+    :hasSelectQuery """
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX bibo:     <http://purl.org/ontology/bibo/>
+SELECT ?peer_review_value
+WHERE
+{
+  ?uri a bibo:Journal .
+  OPTIONAL {
+    ?uri <https://vivo.tib.eu/fis/ontology/tib-vivo#peer_review_system> ?value .
+  }
+  BIND(COALESCE(?value, "not assigned") as ?peer_review_value)
+}
+""" .
+
