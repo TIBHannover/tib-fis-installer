@@ -30,7 +30,7 @@
                         <nav role="navigation">
                             <ul id="footer-nav" role="list">
                                 <li role="listitem"><a href="${urls.about}" title="${i18n().menu_about}">${i18n().menu_about}</a></li>
-                                <li role="listitem"><a href="https://vivo.tib.eu/fis/contact" target="blank" title="${i18n().menu_support}">${i18n().menu_support}</a></li>
+                                <li role="listitem"><a href="https://vivo.tib.eu/fis/contact" title="${i18n().menu_support}">${i18n().menu_support}</a></li>
                             </ul>
                         </nav>
                     </div>
