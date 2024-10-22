@@ -130,9 +130,11 @@
         PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX vivo:  <http://vivoweb.org/ontology/core#>
-        SELECT DISTINCT ?type
+        SELECT DISTINCT ?concept
         WHERE {
-            ?uri vivo:relatedBy ?publication .
+            ?uri vivo:relatedBy ?relationship .
+            ?relationship a vivo:Relationship .
+            ?relationship vivo:relates ?publication .
 	    ?publication vivo:hasSubjectArea ?concept .
             ?concept rdf:type <http://www.w3.org/2004/02/skos/core#Concept> .
         }
