@@ -373,11 +373,11 @@ WHERE
 """ .
 
 
-:vitrodocumentModifier_event_types
+:vitrodocumentModifier_research_types
     a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
         <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
-    rdfs:label "event types" ;
-    :hasTargetField "event_types_ss" ;
+    rdfs:label "research types" ;
+    :hasTargetField "research_types_ss" ;
     :hasSelectQuery """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         SELECT DISTINCT ?uri
