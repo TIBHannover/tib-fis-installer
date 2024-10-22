@@ -99,6 +99,26 @@
 
 """ .
 
+:vitrodocumentModifier_related_organizations_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "related to organizations" ;
+    :hasTargetField "related_organizations_ss" ;
+    :hasSelectQuery """
+        PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+        PREFIX obo:      <http://purl.obolibrary.org/obo/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+        SELECT DISTINCT ?organization
+        WHERE {
+          ?uri a foaf:Person .
+          ?position vivo:relates ?uri .
+          ?position a vivo:Position .
+          ?organization obo:BFO_0000050*/obo:BFO_0000051*/vivo:relatedBy ?position .
+        }
+
+""" .
+
 
 
 :vitrodocumentModifier_related_concepts_filter
