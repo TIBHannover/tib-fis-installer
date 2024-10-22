@@ -161,7 +161,7 @@
     :hasTargetField "publication_types_ss" ;
     :hasSelectQuery """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT DISTINCT ?uri
+        SELECT DISTINCT ?type
         WHERE {
             ?uri rdf:type <http://purl.obolibrary.org/obo/IAO_0000030> .
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
@@ -380,7 +380,7 @@ WHERE
     :hasTargetField "research_types_ss" ;
     :hasSelectQuery """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT DISTINCT ?uri
+        SELECT DISTINCT ?type
         WHERE {
  { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBProjekt> . } UNION 
  { ?uri a <http://purl.org/ontology/bibo/AcademicArticle> . } UNION 
@@ -405,6 +405,22 @@ WHERE
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
         }
 """ .
+
+:vitrodocumentModifier_event_types
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "event dates" ;
+    :hasTargetField "event_types_ss" ;
+    :hasSelectQuery """
+        PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT ?type
+        WHERE
+        {
+            ?uri a <http://purl.org/NET/c4dm/event.owl#Event> .
+            ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+        }
+""" .
+
 
 :vitrodocumentModifier_event_dates
     a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
