@@ -445,7 +445,8 @@ WHERE
  { ?uri a <http://vivoweb.org/ontology/core#ResearchProposal> . } UNION 
  { ?uri a <http://purl.org/ontology/bibo/Slideshow> . } UNION 
  { ?uri a <http://purl.org/ontology/bibo/Webpage> . } UNION 
- { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . }
+ { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . } UNION
+ { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Preprint> . }
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
         }
 """ .
