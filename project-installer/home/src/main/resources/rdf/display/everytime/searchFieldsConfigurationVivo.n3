@@ -207,8 +207,30 @@
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         SELECT DISTINCT ?type
         WHERE {
-            ?uri rdf:type <http://purl.obolibrary.org/obo/IAO_0000030> .
+            ?uri <https://vivo.tib.eu/fis/ontology/tib-vivo#tibPublikation> true .
+ { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBProjekt> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/AcademicArticle> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#ConferencePaper> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#BlogPosting> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/Book> . } UNION
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#Monographie> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/EditedBook> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/Chapter> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#ConferencePoster> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#Dataset> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/Report> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#WorkingPaper> . } UNION
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> . } UNION
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#Software> . } UNION
+ { ?uri a <http://purl.obolibrary.org/obo/ERO_0000071> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#EditorialArticle> . } UNION
+ { ?uri a <http://vivoweb.org/ontology/core#ResearchProposal> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/Slideshow> . } UNION
+ { ?uri a <http://purl.org/ontology/bibo/Webpage> . } UNION
+ { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . } UNION
+ { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Preprint> . }
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+
         }
 """ .
 
@@ -426,6 +448,7 @@ WHERE
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         SELECT DISTINCT ?type
         WHERE {
+            ?uri <https://vivo.tib.eu/fis/ontology/tib-vivo#tibPublikation> true .
  { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBProjekt> . } UNION 
  { ?uri a <http://purl.org/ontology/bibo/AcademicArticle> . } UNION 
  { ?uri a <http://vivoweb.org/ontology/core#ConferencePaper> . } UNION 
