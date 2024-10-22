@@ -18,6 +18,85 @@
         }
 """ .
 
+:vitrodocumentModifier_person_types_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "person types" ;
+    :hasTargetField "person_types_ss" ;
+    :hasSelectQuery """
+        PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+        SELECT DISTINCT ?type
+        WHERE {
+            ?uri a foaf:Person .
+            ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+        }
+""" .
+
+:vitrodocumentModifier_org_types_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "oragnization types" ;
+    :hasTargetField "organization_types_ss" ;
+    :hasSelectQuery """
+        PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+        SELECT DISTINCT ?type
+        WHERE {
+	  {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Programmbereich> .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Bereich> .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#JuniorResearchGroup> .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Lab> .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+            ?uri a vivo:Library .
+	  }
+	  UNION
+          {
+            ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+            ?uri a vivo:Division .
+	  }
+          ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+        }
+
+""" .
+
+:vitrodocumentModifier_related_concepts_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "related to concepts" ;
+    :hasTargetField "related_concepts_ss" ;
+    :hasSelectQuery """
+        PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+        SELECT DISTINCT ?type
+        WHERE {
+            ?uri vivo:relatedBy ?publication .
+	    ?publication vivo:hasSubjectArea ?concept .
+            ?concept rdf:type <http://www.w3.org/2004/02/skos/core#Concept> .
+        }
+""" .
+
+
 
 :vitrodocumentModifier_concepts_filter
     a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
@@ -75,15 +154,42 @@
         }
 """ .
 
+:vitrodocumentModifier_publication_types_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "publication types" ;
+    :hasTargetField "publication_types_ss" ;
+    :hasSelectQuery """
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT DISTINCT ?uri
+        WHERE {
+            ?uri rdf:type <http://purl.obolibrary.org/obo/IAO_0000030> .
+            ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+        }
+""" .
+
+:vitrodocumentModifier_publication_venue_filter
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "publication venue" ;
+    :hasTargetField "publication_venue_ss" ;
+    :hasSelectQuery """
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+        SELECT DISTINCT ?venue
+        WHERE {
+            ?uri rdf:type <http://purl.obolibrary.org/obo/IAO_0000030> .
+            ?uri vivo:hasPublicationVenue ?venue .
+        }
+""" .
+
 :vitrodocumentModifier_publications_filter
     a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
         <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
     rdfs:label "publications filter" ;
     :hasTargetField "publications_ss" ;
     :hasSelectQuery """
-        PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX vivo:  <http://vivoweb.org/ontology/core#>
         SELECT DISTINCT ?uri
         WHERE {
             {
@@ -265,4 +371,59 @@ WHERE
   BIND(COALESCE(?value, "not assigned") as ?peer_review_value)
 }
 """ .
+
+
+:vitrodocumentModifier_event_types
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "event types" ;
+    :hasTargetField "event_types_ss" ;
+    :hasSelectQuery """
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT DISTINCT ?uri
+        WHERE {
+ { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBProjekt> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/AcademicArticle> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#ConferencePaper> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#BlogPosting> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/Book> . } UNION 
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#Monographie> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/EditedBook> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/Chapter> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#ConferencePoster> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#Dataset> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/Report> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#WorkingPaper> . } UNION 
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> . } UNION 
+ { ?uri a <http://kerndatensatz-forschung.de/owl/Basis#Software> . } UNION 
+ { ?uri a <http://purl.obolibrary.org/obo/ERO_0000071> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#EditorialArticle> . } UNION 
+ { ?uri a <http://vivoweb.org/ontology/core#ResearchProposal> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/Slideshow> . } UNION 
+ { ?uri a <http://purl.org/ontology/bibo/Webpage> . } UNION 
+ { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . }
+            ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+        }
+""" .
+
+:vitrodocumentModifier_event_dates
+    a   <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.SelectQueryDocumentModifier> ,
+        <java:edu.cornell.mannlib.vitro.webapp.searchindex.documentBuilding.DocumentModifier> ;
+    rdfs:label "event dates" ;
+    :hasTargetField "event_dates_drsim" ;
+    :hasSelectQuery """
+        PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT ?result
+        WHERE
+        {
+                  ?uri a <http://purl.org/NET/c4dm/event.owl#Event> .
+                  ?uri <http://vivoweb.org/ontology/core#dateTimeInterval> ?interval .
+                  ?interval <http://vivoweb.org/ontology/core#end> ?start .
+                  ?start <http://vivoweb.org/ontology/core#dateTime> ?startTime .
+                  ?interval <http://vivoweb.org/ontology/core#end> ?end .
+                  ?end <http://vivoweb.org/ontology/core#dateTime> ?endTime .
+                  BIND( CONCAT("[", STR(?startTime),"Z TO ", STR(?endTime),"Z]") as ?result )
+        }
+""" .
+
 
