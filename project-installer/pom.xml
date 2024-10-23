@@ -7,7 +7,7 @@
 
     <groupId>eu.tib.osl</groupId>
     <artifactId>vivo-installer</artifactId>
-    <version>1.14.1-SNAPSHOT</version>
+    <version>1.15.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>custom VIVO installer</name>
