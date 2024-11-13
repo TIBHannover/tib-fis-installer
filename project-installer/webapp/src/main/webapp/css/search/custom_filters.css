@@ -58,7 +58,7 @@
 }
 
 #browse-filters>li:not(:last-child) {
-	border-bottom: 1px dotted #dde4e3;
+	border-bottom: 1px dotted #595b5b;
 }
 
 #browse-filters>li {
