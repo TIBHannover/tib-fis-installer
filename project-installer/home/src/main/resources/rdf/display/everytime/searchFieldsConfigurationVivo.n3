@@ -205,7 +205,7 @@
     :hasTargetField "publication_types_ss" ;
     :hasSelectQuery """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT DISTINCT ?type
+        SELECT DISTINCT ?filteredType
         WHERE {
             ?uri <https://vivo.tib.eu/fis/ontology/tib-vivo#tibPublikation> true .
             { ?uri a <http://purl.org/ontology/bibo/AcademicArticle> . } UNION
@@ -229,6 +229,7 @@
             { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#Preprint> . }
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
 
+            BIND(IF((str(?type)) != "https://vivo.tib.eu/fis/ontology/tib-vivo#Local", ?type, 1/0) as ?filteredType )
         }
 """ .
 
@@ -317,7 +318,7 @@
             ?uri <http://purl.org/ontology/bibo/status> ?status .
           }
           BIND (
-            COALESCE( STR(?status), "https://vivo.tib.eu/fis/individual/n32259" ) AS ?result
+            COALESCE( STR(?status), "not_assigned" ) AS ?result
           )
         }
 """ .
@@ -444,7 +445,7 @@ WHERE
     :hasTargetField "research_types_ss" ;
     :hasSelectQuery """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT DISTINCT ?type
+        SELECT DISTINCT ?filteredType
         WHERE {
           {
             ?uri <https://vivo.tib.eu/fis/ontology/tib-vivo#tibPublikation> true .
@@ -473,6 +474,7 @@ WHERE
             { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . }
           }
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+            BIND(IF((str(?type)) != "https://vivo.tib.eu/fis/ontology/tib-vivo#Local", ?type, 1/0) as ?filteredType )
         }
 """ .
 
