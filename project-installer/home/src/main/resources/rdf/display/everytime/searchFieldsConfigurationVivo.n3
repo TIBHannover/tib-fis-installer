@@ -115,6 +115,36 @@
           ?position vivo:relates ?uri .
           ?position a vivo:Position .
           ?organization vivo:relatedBy ?position .
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#AdministrativeEinheit> .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#Programmbereich> .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#Bereich> .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#JuniorResearchGroup> .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#Lab> .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+            ?organization a vivo:Library .
+          }
+          UNION
+          {
+            ?organization a <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> .
+            ?organization a vivo:Division .
+          }
+
         }
 
 """ .
