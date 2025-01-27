@@ -103,8 +103,6 @@
     </build>
 
     <modules>
-        <module>../Vitro-languages</module>
-        <module>../VIVO-languages</module>
         <module>home</module>
         <module>webapp</module>
     </modules>
