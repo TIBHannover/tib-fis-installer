@@ -501,7 +501,10 @@ WHERE
           } UNION
           {
             { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBProjekt> . } UNION 
-            { ?uri a <http://www.w3.org/2004/02/skos/core#Concept> . }
+            {
+              ?uri a <http://www.w3.org/2004/02/skos/core#Concept> .
+              FILTER NOT EXISTS {?uri a <http://lod.tib.eu/onto/vivo-oa/Publication_Access>}
+            }
           }
             ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
             BIND(IF((str(?type) != "https://vivo.tib.eu/fis/ontology/tib-vivo#Local") && 
