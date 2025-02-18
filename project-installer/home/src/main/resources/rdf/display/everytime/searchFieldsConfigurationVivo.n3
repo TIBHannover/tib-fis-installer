@@ -111,7 +111,7 @@
         PREFIX vivo:  <http://vivoweb.org/ontology/core#>
         SELECT DISTINCT ?organization
         WHERE {
-          ?uri a foaf:Person .
+          ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBMitarbeiter> .
           ?position vivo:relates ?uri .
           ?position a vivo:Position .
           ?organization vivo:relatedBy ?position .
