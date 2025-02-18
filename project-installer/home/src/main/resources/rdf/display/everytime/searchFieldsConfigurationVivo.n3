@@ -10,19 +10,11 @@
         PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX vivo:  <http://vivoweb.org/ontology/core#>
-        PREFIX obo: <http://purl.obolibrary.org/obo/>
-        SELECT DISTINCT ?presonRelatedInvididual
+        SELECT DISTINCT ?person
         WHERE {
             ?uri vivo:relatedBy ?position .
-            {
-              ?position vivo:relates ?presonRelatedInvididual .
-              ?presonRelatedInvididual rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBMitarbeiter> .
-            }
-            UNION
-            {
-              ?position vivo:relates ?presonRelatedInvididual .
-              ?presonRelatedInvididual a obo:IAO_0000030 .
-            }
+            ?position vivo:relates ?person .
+            ?person rdf:type <https://vivo.tib.eu/fis/ontology/tib-vivo#TIBMitarbeiter> .
         }
 """ .
 
