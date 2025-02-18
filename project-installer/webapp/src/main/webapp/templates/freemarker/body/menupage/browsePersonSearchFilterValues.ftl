@@ -1,3 +1,3 @@
-<#assign additionalFilters = ["related_concepts", "related_organizations"]>
+<#assign additionalFilters = ["related_concepts"]>
 <#assign sortOptionIds = ["titledesc", "titleasc"]>
 <#include "browseSearchFilterValues.ftl">
