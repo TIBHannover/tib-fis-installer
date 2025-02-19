@@ -96,6 +96,7 @@
           ?position a vivo:Position .
           ?position vivo:relates ?person .
           ?person a foaf:Person .
+          FILTER NOT EXISTS { ?person a <https://vivo.tib.eu/fis/ontology/tib-vivo#ExTIBStaff> . }
         }
 
 """ .
@@ -174,6 +175,7 @@ WHERE {
   {
     ?uri vivo:hasResearchArea ?concept .
     ?concept rdf:type <http://www.w3.org/2004/02/skos/core#Concept> .
+    FILTER NOT EXISTS { ?uri a <https://vivo.tib.eu/fis/ontology/tib-vivo#ExTIBStaff> . }
   }
 }
 """ .
