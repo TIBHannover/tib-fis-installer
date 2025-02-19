@@ -75,6 +75,7 @@
             ?uri a vivo:Division .
 	  }
           ?uri <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+          FILTER (?type != <https://vivo.tib.eu/fis/ontology/tib-vivo#Local> )
         }
 
 """ .
