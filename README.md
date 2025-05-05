@@ -1,9 +1,6 @@
 # TIB VIVO Installer 
 This is a customized installer for the [VIVO](https://vivoweb.org) at TIB: https://vivo.tib.eu/fis. It serves as an institutional research profile system and research information system.
 
-# How to use this repository?
-
-
 # Are you interested in working with VIVO? 
 Please make use of the vast resources that are available about VIVO:
 - [in the Lyrasis Wiki](https://wiki.lyrasis.org/display/VIVO)
